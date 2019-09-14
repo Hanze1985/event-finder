@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.views import generic
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Event
 
 
@@ -20,3 +21,8 @@ class EventView(generic.DetailView):
 
 def account(request):
     return render(request, 'eventFinderApp/account.html')
+
+class EventCreate(generic.edit.CreateView):
+   model = Event
+   fields = '__all__'
+   success_url = reverse_lazy('eventFinderApp:index')

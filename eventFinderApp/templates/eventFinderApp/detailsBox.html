@@ -6,7 +6,7 @@
         <p>
             {% for cat in event.categories.all %}
                 {{ cat.name }}
-                {% if not forloop.first %}
+                {% if not forloop.first and not forloop.last %}
                     ,
                 {% endif %}
             {% endfor %}

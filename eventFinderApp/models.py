@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -15,4 +16,8 @@ class Event(models.Model):
     end_time = models.DateTimeField('end time and date')
     venue = models.CharField(max_length=200)
     categories = models.ManyToManyField(Category)
+
+
+def __str__(self):
+       return "%s (%s)" % (self.title, self.start_time)
 

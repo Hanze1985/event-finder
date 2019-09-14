@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -11,5 +11,7 @@ urlpatterns = [
     # event-finder/1
     path('<int:pk>/', views.EventView.as_view(), name='event'),
     # event-finder/my-account
-    path('my-account/', views.account, name='account')
+    path('create/', views.EventCreate.as_view(), name='create'),
+    path('my-account/', views.account, name='account'),
+    path('users/', include('django.contrib.auth.urls'))
 ]
