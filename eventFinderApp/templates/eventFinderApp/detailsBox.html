@@ -2,5 +2,14 @@
     <a href="{% url 'eventFinderApp:event' event.id %}">
         <p>{{ event.title }}</p>
         <p>{{ event.start_time }}</p>
+        {% comment %} <p>{{ event.categories.all }}</p> {% endcomment %}
+        <p>
+            {% for cat in event.categories.all %}
+                {{ cat.name }}
+                {% if not forloop.first %}
+                    ,
+                {% endif %}
+            {% endfor %}
+        </p>
     </a>
 </div>
