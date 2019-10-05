@@ -29,11 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 if 'BEANSTALK_HOST' in os.environ:
     ALLOWED_HOSTS.append(os.environ['BEANSTALK_HOST'])
-  try:
+    try:
       # Be sure your ALLOWED_HOSTS is a list NOT a tuple
       # or .append() will fail
-      ALLOWED_HOSTS.append(socket.gethostbyname(socket.gethostname()))
-  except:
+        ALLOWED_HOSTS.append(socket.gethostbyname(socket.gethostname()))
+    except:
       # silently fail as we may not be in an ECS environment
       pass
 
